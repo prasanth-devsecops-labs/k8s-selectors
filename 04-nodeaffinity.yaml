@@ -18,14 +18,14 @@ spec:
             - us-east-1c
       # Soft Rule
       preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 100
+      - weight: 10
         preference:
           matchExpressions:
           - key: project
             operator: In
             values:
             - roboshop
-      - weight: 101
+      - weight: 100
         preference:
           matchExpressions:
           - key: project
