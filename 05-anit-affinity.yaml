@@ -27,3 +27,5 @@ spec:
     operator: "Equal"
     value: "gpu"
     effect: "NoExecute"
+
+# kubectl taint nodes ip-192-168-50-64.ec2.internal hardware=gpu:NoExecute
