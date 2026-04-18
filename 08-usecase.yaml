@@ -16,15 +16,15 @@ spec:
         podAntiAffinity:
           # requiredDuringSchedulingIgnoredDuringExecution:
           preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100 # You must add a weight (1-100)
-            preference: # You must add this block
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - store
-            topologyKey: "kubernetes.io/hostname"
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - store
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: redis-server
         image: redis:3.2-alpine
@@ -48,15 +48,15 @@ spec:
         podAntiAffinity:
           # requiredDuringSchedulingIgnoredDuringExecution:
           preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100 # You must add a weight (1-100)
-            preference: # You must add this block
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - web-store
-            topologyKey: "kubernetes.io/hostname"
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - web-store
+              topologyKey: "kubernetes.io/hostname"
         podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
