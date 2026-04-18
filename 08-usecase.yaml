@@ -16,6 +16,8 @@ spec:
         podAntiAffinity:
           # requiredDuringSchedulingIgnoredDuringExecution:
           preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100 # You must add a weight (1-100)
+            preference: # You must add this block
           - labelSelector:
               matchExpressions:
               - key: app
@@ -46,6 +48,8 @@ spec:
         podAntiAffinity:
           # requiredDuringSchedulingIgnoredDuringExecution:
           preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100 # You must add a weight (1-100)
+            preference: # You must add this block
           - labelSelector:
               matchExpressions:
               - key: app
