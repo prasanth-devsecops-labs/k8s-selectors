@@ -8,3 +8,8 @@ spec:
     image: nginx
   nodeSelector:
     project: amazon
+  tolerations:
+  - key: "project"
+    operator: "Equal"
+    value: "amazon"
+    effect: "NoExecute"
